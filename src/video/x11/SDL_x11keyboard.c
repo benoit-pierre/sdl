@@ -317,6 +317,9 @@ X11_UpdateKeymap(_THIS)
         if (key) {
             keymap[scancode] = key;
         }
+        else {
+            keymap[scancode] = SDL_SCANCODE_TO_KEYCODE(X11_KeyCodeToSDLScancode(data->display, (KeyCode)i));
+        }
     }
     SDL_SetKeymap(0, keymap, SDL_NUM_SCANCODES);
 }
